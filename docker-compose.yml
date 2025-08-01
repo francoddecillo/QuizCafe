@@ -1,0 +1,61 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+    ports:
+      - "3307:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - db_data:/var/lib/mysql
+
+  quiz-cafe-usuarios:
+    build:
+      context: ./quiz-cafe-usuarios
+      dockerfile: Dockerfile
+    container_name: quiz-cafe-usuarios
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/${MYSQL_DATABASE}
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  quiz-cafe-preguntas:
+    build:
+      context: ./quiz-cafe-preguntas
+      dockerfile: Dockerfile
+    container_name: quiz-cafe-preguntas
+    ports:
+      - "8081:8081"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/${MYSQL_DATABASE}
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  quiz-cafe-frontend:
+    build:
+      context: ./quiz-cafe-frontend
+      dockerfile: Dockerfile
+    container_name: quiz-cafe-frontend
+    ports:
+      - "8084:80"
+    depends_on:
+      - quiz-cafe-usuarios
+      - quiz-cafe-preguntas
+
+volumes:
+  db_data:

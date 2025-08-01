@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Quiz Café</title>
+    <link rel="stylesheet" href="css/quiz.css" />
+    <script src="js/quiz.js" defer></script>
+</head>
+<body>
+
+<nav>
+    <div class="logo">☕ Quiz Café</div>
+    <div class="menu">
+        <button onclick="cerrarSesion()">🚪 Cerrar sesión</button>
+    </div>
+</nav>
+
+<section class="activo">
+    <div class="contenedor-quiz" id="quiz">
+        <h2 id="bienvenida"></h2>
+        <h3 id="pregunta">Cargando pregunta...</h3>
+        <div id="opciones" class="opciones"></div>
+        <button id="siguiente" class="boton-siguiente" style="display:none;">Siguiente</button>
+    </div>
+</section>
+
+</body>
+</html>

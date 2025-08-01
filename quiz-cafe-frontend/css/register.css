@@ -1,0 +1,140 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f3e5ab url("../img/fondo-cafe.jpg") no-repeat center center fixed;
+    background-size: cover;
+    color: #3e2723;
+    padding-top: 90px; /* espacio para el navbar */
+}
+
+/* 🔹 NAVBAR */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background-color: #4e342e;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 25px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    z-index: 1000;
+}
+
+.logo {
+    color: #fff8e1;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.menu button {
+    margin-left: 10px;
+    padding: 8px 14px;
+    background-color: #6d4c41;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.menu button:hover {
+    background-color: #5d4037;
+}
+
+/* 🔹 SECCIONES */
+section {
+    display: none;
+    padding: 40px 30px;
+    max-width: 700px;
+    width: 100%;
+    min-height: 70vh;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+section.activo {
+    display: block;
+}
+
+/* Títulos más grandes y destacados */
+section h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #4e342e;
+    font-size: 3em;
+    font-weight: 700;
+}
+
+/* Contenedor del formulario para centrar */
+.contenedor {
+    max-width: 480px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Inputs */
+.contenedor input[type="text"],
+.contenedor input[type="email"],
+.contenedor input[type="password"] {
+    width: 100%;
+    padding: 16px 14px;
+    margin: 14px 0;
+    font-size: 1.3em;
+    border: 1px solid #aaa;
+    border-radius: 8px;
+}
+
+/* Botón */
+.contenedor button {
+    width: 100%;
+    padding: 14px 0;
+    margin-top: 14px;
+    font-size: 1.25em;
+    border-radius: 8px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #795548;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.contenedor button:hover {
+    background-color: #5d4037;
+}
+
+/* Texto debajo del formulario */
+.contenedor p {
+    margin-top: 30px;
+    font-size: 1em;
+    color: #4e342e;
+}
+
+.contenedor p a {
+    color: #6d4c41;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.contenedor p a:hover {
+    text-decoration: underline;
+}
+

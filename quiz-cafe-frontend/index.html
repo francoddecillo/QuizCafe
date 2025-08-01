@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Quiz Café</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/app.js" defer></script>
+</head>
+<body>
+
+<nav>
+    <div class="logo">☕ Quiz Café</div>
+    <div class="menu">
+        <button onclick="mostrarSeccion('info')">ℹ️ Info</button>
+        <button onclick="mostrarSeccion('inicio')">🏠 Inicio</button>
+    </div>
+</nav>
+
+<section id="inicio" class="activo">
+    <div class="contenido">
+        <h1>☕ ¡Bienvenido a Quiz Café!</h1>
+        <p style="font-size: 1em; margin-bottom: 20px;">
+            Descubrí datos interesantes, curiosidades y secretos del café.<br />
+            ¡Demostrá que eres un verdadero experto cafetero! <br />
+            😁
+        </p>
+        <form id="login-form" autocomplete="off" style="max-width: 400px; margin: 0 auto;">
+            <label for="email" style="font-weight: 700; font-size: 1.5em; color: #4e342e;">INICIAR SESIÓN</label>
+            <input type="email" id="email" placeholder="📧 Correo electrónico" required />
+
+            <input type="password" id="password" placeholder="🔑 Contraseña (8-25 caracteres)" required />
+            <br>
+
+            <button type="submit" class="boton-jugar" style="font-weight: 700; font-size: 3em; color: #ffffff;">JUGAR</button>
+        </form>
+
+
+        <p class="registrate-text" style="margin-top: 25px; font-size: 1em;">
+            ¿No tenés cuenta? <a href="register.html">Registrate</a>
+        </p>
+    </div>
+</section>
+
+<section id="info">
+    <h1>ℹ️ Info</h1>
+    <div class="contenido">
+        <p>
+            Soy amante del café y decidí crear <b>Quiz Café</b> como un proyecto personal, combinando mi gusto por el café con el desarrollo web y el aprendizaje interactivo.<br>
+            Todo el diseño, contenido y programación fueron usando:<br>
+            <br>
+        <ul>
+            <b>Frontend:</b> HTML, CSS y JavaScript puro (con <code>fetch</code> para consumir APIs). <br>
+            <b>Backend:</b> Java 17, Spring Boot (Spring Web, Spring Data JPA, Spring Security, Spring Validation), JWT para autenticación, MySQL como base de datos, Lombok, Maven.
+        </ul>
+        Implementé seguridad real en los endpoints y manejo de datos usando <b>Spring Boot</b> y <b>Spring Security</b> para simular un entorno profesional de APIs modernas.<br>
+        <br>
+        Si tenés dudas, sugerencias o simplemente querés hablar de café, podés contactarme ☕
+        </p>
+        <div class="redes">
+            <p><b>📧 Correo:</b> ...@gmail.com</p>
+            <p><b>💼 LinkedIn:</b> <a href="https://linkedin.com/in/francoddecillo" target="_blank">linkedin.com/in/...</a></p>
+            <p><b>🌐 GitHub:</b> <a href="https://github.com/francoddecillo" target="_blank">github.com/...</a></p>
+            <br>
+            ¡Espero que lo disfrutes! ☕💻
+        </div>
+    </div>
+</section>
+
+
+<script>
+    function mostrarSeccion(id) {
+        document.querySelectorAll("section").forEach(s => s.classList.remove("activo"));
+        document.getElementById(id).classList.add("activo");
+    }
+</script>
+
+</body>
+</html>
