@@ -7,7 +7,7 @@ Quiz Café es un proyecto personal de aprendizaje sobre una aplicación web full
 ## Estructura del proyecto
 
 * **docker-compose.yml**
-* **.env**
+* **.env.example**
 * **quiz-cafe-frontend/**
 
   * Dockerfile
